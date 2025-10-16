@@ -7,14 +7,14 @@ public class Main {
     public static void main(String[] args) {
 
         // -----------------------------
-        // 1️⃣ Criando clientes
+        // Criando clientes
         // -----------------------------
         Cliente cliente1 = new Cliente(1, "João", "123456789", "111.111.111-11");
         Cliente cliente2 = new Cliente(2, "Maria", "987654321", "222.222.222-22");
 
         // -----------------------------
-        // 2️⃣ Criando funcionários
-        // -----------------------------
+        // Criando funcionários
+        // ----------------------------- 
         List<Cliente> clientesFuncionario1 = new ArrayList<>();
         clientesFuncionario1.add(cliente1);
         Funcionario funcionario1 = new Funcionario(1, "Carlos", "Atendente", 2000f, clientesFuncionario1);
@@ -24,20 +24,20 @@ public class Main {
         Funcionario funcionario2 = new Funcionario(2, "Ana", "Caixa", 2200f, clientesFuncionario2);
 
         // -----------------------------
-        // 3️⃣ Criando fornecedores
+        // Criando fornecedores
         // -----------------------------
         Fornecedor fornecedor1 = new Fornecedor(1, "Fornecedor A", "999999999", "Farinha");
         Fornecedor fornecedor2 = new Fornecedor(2, "Fornecedor B", "888888888", "Açúcar");
 
         // -----------------------------
-        // 4️⃣ Criando produtos
+        // Criando produtos
         // -----------------------------
         Produto produto1 = new Produto(1, "Pão Francês", 0.50f, 100, "Padaria");
         Produto produto2 = new Produto(2, "Bolo de Chocolate", 15f, 20, "Confeitaria");
         Produto produto3 = new Produto(3, "Pão Integral", 0.80f, 50, "Padaria");
 
         // -----------------------------
-        // 5️⃣ Criando padaria e adicionando funcionários e fornecedores
+        // Criando padaria e adicionando funcionários e fornecedores
         // -----------------------------
         Padaria padaria = new Padaria(1, "Padaria do Miguel", "Rua Central");
         padaria.adcFuncionario(funcionario1);
@@ -46,7 +46,7 @@ public class Main {
         padaria.adcFornecedor(fornecedor2);
 
         // -----------------------------
-        // 6️⃣ Listando funcionários e fornecedores
+        //  Listando funcionários e fornecedores
         // -----------------------------
         System.out.println("=== FUNCIONÁRIOS ===");
         padaria.listarFuncionarios();
@@ -54,7 +54,7 @@ public class Main {
         padaria.listarFornecedores();
 
         // -----------------------------
-        // 7️⃣ Testando estoque
+        // Testando estoque
         // -----------------------------
         System.out.println("\n=== ESTOQUE ANTES ===");
         System.out.println(produto1.getNome() + ": " + produto1.getQtdEstoque());
@@ -68,7 +68,7 @@ public class Main {
         System.out.println(produto2.getNome() + ": " + produto2.getQtdEstoque());
 
         // -----------------------------
-        // 8️⃣ Criando vendas
+        //  Criando vendas
         // -----------------------------
         Venda venda1 = new Venda(1, LocalDate.now(), cliente1, funcionario1);
         venda1.adicionarItem(new ItemVenda(produto1, 10, produto1.getPreco()));
@@ -78,7 +78,7 @@ public class Main {
         venda2.adicionarItem(new ItemVenda(produto3, 5, produto3.getPreco()));
 
         // -----------------------------
-        // 9️⃣ Exibindo dados das vendas
+        // Exibindo dados das vendas
         // -----------------------------
         System.out.println("\n=== VENDA 1 ===");
         System.out.println("Cliente: " + venda1.getCliente().getNome());
@@ -99,7 +99,7 @@ public class Main {
         System.out.println("Valor total: R$ " + venda2.getValorTotal());
 
         // -----------------------------
-        // 🔹 Testando polimorfismo
+        // Testando polimorfismo
         // -----------------------------
         System.out.println("\n=== EXIBINDO DADOS DE TODOS ===");
         List<Pessoa> pessoas = new ArrayList<>();
@@ -108,6 +108,6 @@ public class Main {
         pessoas.add(funcionario1);
         pessoas.add(funcionario2);
 
-        pessoas.forEach(p -> p.exibirDados()); // chama o exibirDados() correto de cada classe
+        pessoas.forEach(p -> p.exibirDados()); // chama o exibirDados de cada classe
     }
 }
